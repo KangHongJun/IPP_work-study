@@ -21,7 +21,7 @@ pytorch 튜툐리얼을 진행하던 환경에 추가로 세팅하려니 라이�
 
 
 
-## 3. [Origin-NMS](https://github.com/KangHongJun/Origin-NMS)
+## 3. [Origin-NMS](https://github.com/KangHongJun/Origin-NMS)(Sahi에 내장된 병합 알고리즘 NMS개선)
 
 ### 진행과정
 
