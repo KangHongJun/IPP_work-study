@@ -18,6 +18,7 @@
 pytorch 튜툐리얼을 진행하던 환경에 추가로 세팅하려니 라이브러리들이 서로 버전 충돌이 나서 갈아엎으면서 진행했다.<br>
  환경세팅이 끝난 후에는 yolov5의 공식문서에서 커스텀 데이터 훈련방법을 보면서 roboflow에서 fire 데이터를 다운받고 훈련시킨 후 이미지/영상을 넣어보니 불을 잘 감지했다.
 그 다음에는 사람과 건물 붕괴 데이터도 넣어서 학습해봤지만, 컴퓨터 성능문제로 훈련을 조금 밖에 돌리지 못하여 성능이 좋지 않았다.
+<img src="https://github.com/KangHongJun/IPP_Xiilab/blob/main/collapse_data_train/val_batch0_pred.jpg">
 
 
 
@@ -36,5 +37,16 @@ pytorch 튜툐리얼을 진행하던 환경에 추가로 세팅하려니 라이�
 #### 느낀점
  코드를 개선해 나가기 위해서는 오픈소스의 구조와 가공하기 위한 반환 타입 등을 알아야 했기 때문에 처음으로 오픈소스를 디버깅하면서 분석해봤는데 어려운 만큼 코드 짜는 방식이나 문법에 대한 이해가 깊어진다고 느꼈고, 많은 도움을 받아서 진행한 만큼 누군가의 피드백을 받아가며 개선해나가는 과정이 재미있었다.
  코드를 개선해 나가면서 문법에 혼동이 있어서 코드를 잘못 작성한다거나, 결과 이미지 이름을 애매하게 작성하여 나중에 검토 할 때 어떤 코드에서 나온 결과물인지 모르는 상황이 나왔기 때문에 버전 관리 및 결과물에 대한 기록작성에 대한 중요성을 많이 느꼈고, sahi-yolox에 이 알고리즘을 적용해볼때는 오픈소스가 여러개 엮이니 환경세팅이 복잡했다.(pycocotools/c++기반/conda로 설치)  문서도 꼼꼼히 읽고, 그때그때 가상환경을 만들어서 해야겠다고 느꼇다.
+ 
+ <p float="left">
+    <div align = "center">
+      <br>
+       <img src="https://github.com/KangHongJun/Origin-NMS/blob/main/Images/NMS_yolov5m.png", width="45%">
+       <img src="https://github.com/KangHongJun/Origin-NMS/blob/main/Images/Origin_NMS_yolov5m.png", width="45%"><br>
+      [좌 : sahi를 이용한 이미지 detct 후 NMS, 우 : 개선한 방법]
+    </div>
+  </p>
+  기존 NMS와 비교하면 상당히 개선된 것을 확인할 수 있다.
+</div>
 
 
