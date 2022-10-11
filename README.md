@@ -3,7 +3,8 @@
 ## 1. [Pytorch tutorial](https://github.com/KangHongJun/IPP_Xiilab/tree/main/pytorch)
 
 ### 진행과정
- [pytorch 튜툐리얼](https://tutorials.pytorch.kr/beginner/basics/quickstart_tutorial.html)을 진행했다. Pycharm환경에서 conda 인터프리터를 설정하여 진행했다.
+ [pytorch 튜툐리얼](https://tutorials.pytorch.kr/beginner/basics/quickstart_tutorial.html)을 Pycharm환경에서 conda 인터프리터로 설정하여 진행했다. 
+
 2021년도에 한국IT비즈니스진흥협회에서 고급 딥러닝 과정을 들었기에 용어가 친숙했지만, 
 까먹은 상태였기 때문에 용어와 함수들의 의미에 대해 인지하는 과정이었다.
 
