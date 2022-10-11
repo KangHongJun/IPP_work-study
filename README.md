@@ -40,10 +40,10 @@ pytorch 튜툐리얼을 진행하던 환경에 추가로 세팅하려니 라이�
  
  <p float="left">
     <div align = "center">
-      <br>
-       <img src="https://github.com/KangHongJun/Origin-NMS/blob/main/Images/NMS_yolov5m.png", width="45%">
-       <img src="https://github.com/KangHongJun/Origin-NMS/blob/main/Images/Origin_NMS_yolov5m.png", width="45%"><br>
-      [좌 : sahi를 이용한 이미지 detct 후 NMS, 우 : 개선한 방법]
+       <img src="https://github.com/KangHongJun/Origin-NMS/blob/main/Images/NMS_yolov5m.png"><br>
+     [ sahi를 이용한 이미지 detct 후 NMS ]<br>
+       <img src="https://github.com/KangHongJun/Origin-NMS/blob/main/Images/Origin_NMS_yolov5m.png"><br>
+     [ 개선한 방법 ]
     </div>
   </p>
   기존 NMS와 비교하면 상당히 개선된 것을 확인할 수 있다.
