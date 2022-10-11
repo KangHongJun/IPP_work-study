@@ -1,6 +1,6 @@
 # IPP_work-study
 
-## 1. [파이토치 튜툐리얼](https://github.com/KangHongJun/IPP_Xiilab/tree/main/pytorch)
+## 1. [파이토치 튜토리얼](https://github.com/KangHongJun/IPP_Xiilab/tree/main/pytorch)
 
 ### 진행과정
  [pytorch 튜툐리얼](https://tutorials.pytorch.kr/beginner/basics/quickstart_tutorial.html)을 Pycharm환경에서 conda 인터프리터로 설정하여 진행했다. 
@@ -21,20 +21,22 @@ pytorch 튜툐리얼을 진행하던 환경에 추가로 세팅하려니 라이�
 
 
 
-
 ## 3. [Origin-NMS](https://github.com/KangHongJun/Origin-NMS)
 
 ### 진행과정
 
  먼저 오픈소스 [sahi](https://github.com/obss/sahi)를 detect model을 yolov5로 하여 세팅했다.
- [sahi라는 오픈소스의 목적과 문제점에 대해 파악하고 내장되어 있는 merge 알고리즘 NMS. NMM. GREEDYNMM을 하나씩 돌려보고 정리했고](https://github.com/KangHongJun/IPP_Xiilab/tree/main/sahi_improve/search) <br>
-정리한 것을 바탕으로 피드백을 받았고, sahi의 문제점을 개선하기 위해 첫번째로 merge연산 진행시 IOU연산이 아닌 다른 연산을 하는 눈문에 대한 정보를 탐색해봤지만 공개한 것이 없어서 찾기 힘들었다. 그래서 먼저 겹침정도를 연산하는 IOU와 IOS에 대해 이해하고 NMS와IOS기반으로 개선해나가는것으로 방향을 잡았다.<br>
+ [sahi라는 오픈소스의 목적과 문제점에 대해 파악하고 내장되어 있는 merge 알고리즘 NMS. NMM. GREEDYNMM을 하나씩 돌려보고 정리했고](https://github.com/KangHongJun/IPP_Xiilab/tree/main/sahi_improve/search) (sahi를 이용할때 겹치는 박스가 삭제되지 않거나 올바른 box까지 삭제하는 상황 개선)<br>
+정리한 것을 바탕으로 피드백을 받아서 sahi의 문제점을 개선하기 위해 첫번째로 merge연산 진행시 IOU연산이 아닌 다른 연산을 하는 눈문에 대한 코드를 탐색해봤지만 공개한 것이 없어서 찾기 힘들었다. 그래서 먼저 겹침정도를 연산하는 IOU와 IOS에 대해 이해하고 NMS와IOS기반으로 개선해나가는것으로 방향을 잡았다.<br>
 먼저 그냥 NMS를 진행하면 사라지는 box가 너무 많기 때문에 오리지널 box를 복구하는 방향으로 가자고 피드백을 받아서 진행하였고<br> 
 결과는 box를 복구한 만큼 겹치는 부분이 많아졌기 때문에 그것을 해소할 방법이 필요했고, <br>
 nms 진행시 최고score가 아닌 오리지널 box score기준으로 nms를 진행하였지만 사소한 변화만 있었다.
 그리고 이번엔 슬라이싱 이미지의 box끼리 먼저 nms를 하고 그 다음에 오리지널 이미지의 box를 합쳐서 nms를 하는 방식으로 하자는 피드백을 받고 진행시켰더니
 괜찮은 결과물을 얻어낼 수 있었다.
 
-중간중간에 문법에 혼동이 있어서 코드를 잘못 작성한다거나, 결과 이미지 이름을 애매하게 작성하여 나중에 검토 할 때 어떤 코드에서 나온 결과물인지 모르는 상황이 나왔기 때문에 버전 관리 및 결과물에 대한 기록작성에 대한 중요성을 많이 느꼈다.
+#### 느낀점
+ 코드를 개선해 나가기 위해서는 오픈소스의 구조와 가공하기 위한 반환 타입 등을 알아야 했기 때문에 처음으로 오픈소스를 디버깅하면서 분석해봤는데 어려운 만큼 코드 짜는 방식이나 문법에 대한 이해가 깊어진다고 느껴서 재미있게 진행했다.
+ 코드를 개선해 나가면서 문법에 혼동이 있어서 코드를 잘못 작성한다거나, 결과 이미지 이름을 애매하게 작성하여 나중에 검토 할 때 어떤 코드에서 나온 결과물인지 모르는 상황이 나왔기 때문에 버전 관리 및 결과물에 대한 기록작성에 대한 중요성을 많이 느꼈다.
+ 마지막으로 sahi-yolox에 적용해볼때는 오픈소스가 여러개 엮이니 그만큼 복잡했다. sahi기반이니까 sahi에 추가 했는데 오산이었다. 그때그때 가상환경을 만들어서 해야겠다고 느꼇다.
 
 
