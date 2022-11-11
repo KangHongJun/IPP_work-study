@@ -64,4 +64,17 @@ sahi를 이용하여 이미지를 detect하면 오탐박스가 남는것을 개�
   </p>
   기존 NMS와 비교하면 상당히 개선된 것을 확인할 수 있다.
 
+### 3.1 [Tuning_Threshold](https://github.com/KangHongJun/Tuning_Threshold)
+
+#### 진행과정
+1. Origin-NMS가 테스트에서 성능이 별로였기 때문에 포함도 기준으로 IOU를 구하여 merge하는 알고리즘 이후에 남은 데이터끼리 NMS처리하는 IIOU를 전달받았다.
+2. IIOU에서 가장 큰 사람이 탐지 되지 않았기 때문에 로그를 보면서 어느 단계에서 merge되는지 파악했고, threshold를 조정하면서 알고리즘의 성능을 향상시켰다.
+3. F1-Score를 구하여 수치로 각 알고리즘들의 성능을 검증 및 분석했다.
+
+##### 느낀점
+1. yolov5, yolox두가지 환경에서 테스트를 진행하다보니 같은 threshold여도 결과가 조금씩 달라서<br>
+   같이 테스트하기 보다는 한가지 환경에서 먼저 마무리 하는 것이 좋겠다 생각했다.
+2. 예전에 threshold수치를 조정해봤을 때는 별 성과가 없었는데 의미가 있다는 것을 체험했다.
+3. F1-Score를 구하는 코드를 짜면서 Precision, Recall과 TP,FP,FN등 성능 검증에 사용되는 개념에 대해 알아갈수 있었다.
+
 
